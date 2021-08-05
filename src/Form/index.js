@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./style.css"
 
+
 const Form = () => {
   const [price, setPrice] = useState("")
   const [currency, setCurrency] = useState("4.5622")
@@ -17,6 +18,7 @@ const Form = () => {
     <form onSubmit={onFormSubmit} className="form">
 
       <fieldset className="form__fieldset">
+
         <legend className="form__legend">Currency converter</legend>
         <p>
           <label className="form__label"> I have: PLN
@@ -31,10 +33,8 @@ const Form = () => {
               <option value="5.2474">GBP</option>
               <option value="4.1282">CHF</option>
             </select>
-            <p>
-              <input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} className="form__number" type="number" min="0" step="0.01" />
-              <button className="form__button" onClick={getCurrency}>Convert</button>
-            </p>
+            <input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} className="form__number" type="number" min="0" step="0.01" />
+            <button className="form__button" onClick={getCurrency}>Convert</button>
           </label>
         </p>
       </fieldset>
