@@ -3,7 +3,7 @@ import "./style.css"
 
 
 const Form = () => {
-  const [price, setPrice] = useState("")
+  const [amount, setAmount] = useState("")
   const [currency, setCurrency] = useState("4.5622")
   const [convertCurrency, setConvertCurrency] = useState(0)
 
@@ -11,7 +11,7 @@ const Form = () => {
     event.preventDefault();
   };
   const getCurrency = () => {
-    setConvertCurrency(() => price / currency)
+    setConvertCurrency(() => amount / currency)
   }
 
   return (
@@ -21,8 +21,11 @@ const Form = () => {
 
         <legend className="form__legend">Currency converter</legend>
         <p>
-          <label className="form__label"> I have: PLN
-            <input value={price} onChange={(event) => setPrice(event.target.value)} className="form__number" type="number" step="any" />
+          <label className="form__label"> I have: PLN </label>
+        </p>
+        <p>
+          <label className="form__label">
+            <input value={amount} onChange={(event) => setAmount(event.target.value)} className="form__number" type="number" step="any" />
           </label>
         </p>
         <p>
@@ -33,10 +36,14 @@ const Form = () => {
               <option value="5.2474">GBP</option>
               <option value="4.1282">CHF</option>
             </select>
-            <input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} className="form__number" type="number" min="0" step="0.01" />
-            <button className="form__button" onClick={getCurrency}>Convert</button>
           </label>
         </p>
+        <p>
+          <label>
+            <input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} className="form__number" type="number" min="0" step="0.01" />
+          </label>
+        </p>
+        <button className="form__button" onClick={getCurrency}>Convert</button>
       </fieldset>
     </form >
   )

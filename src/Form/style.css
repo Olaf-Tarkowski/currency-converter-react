@@ -20,9 +20,9 @@
 }
 
 .form__select {
-    text-shadow: 1px 1px black;
+    text-shadow: 1px 1px rgb(0, 0, 0);
     font-weight: 700;
-    color: rgb(0, 185, 31);
+    color: rgb(255, 0, 0);
     background-color: rgb(180, 180, 180);
     border-radius: 5px;
 }
@@ -31,4 +31,12 @@
     border-radius: 5px;
     text-align: center;
     box-shadow: black;
+}
+
+.form__button {
+    text-shadow: 1px 1px black;
+    font-weight: 700;
+    color: rgb(0, 185, 31);
+    background-color: rgb(180, 180, 180);
+    border-radius: 5px;
 }
