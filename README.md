@@ -5,7 +5,7 @@ Description
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Demo
-[My first page](https://olaf-tarkowski.github.io/currency-converter-react/)
+[My currency converter page](https://olaf-tarkowski.github.io/currency-converter-react/)
 
 ## Used technology
 - HTML
