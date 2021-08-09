@@ -4,8 +4,10 @@ import "./style.css"
 
 const Form = () => {
   const [amount, setAmount] = useState("")
-  const [currency, setCurrency] = useState("4.5622")
+  const eur = 4.5622
+  const [currency, setCurrency] = useState(eur)
   const [convertCurrency, setConvertCurrency] = useState(0)
+
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +20,6 @@ const Form = () => {
     <form onSubmit={onFormSubmit} className="form">
 
       <fieldset className="form__fieldset">
-
         <legend className="form__legend">Currency converter</legend>
         <p>
           <label className="form__label"> I have: PLN </label>
@@ -31,7 +32,7 @@ const Form = () => {
         <p>
           <label className="form__label"> I want:
             <select value={currency} onChange={(event) => setCurrency(event.target.value)} className="form__select">
-              <option value="4.5622">EUR</option>
+              <option value={eur}>EUR</option>
               <option value="3.7736">USD</option>
               <option value="5.2474">GBP</option>
               <option value="4.1282">CHF</option>
