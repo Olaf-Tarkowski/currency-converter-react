@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./style.css"
+import currencies from "./currencies";
 
 
 const Form = () => {
   const [amount, setAmount] = useState("")
-  const eur = 4.5622
-  const [currency, setCurrency] = useState(eur)
+  const [currency, setCurrency] = useState(currencies.find((cur) => cur.name === "EUR").value)
   const [convertCurrency, setConvertCurrency] = useState(0)
 
 
@@ -32,10 +32,11 @@ const Form = () => {
         <p>
           <label className="form__label"> I want:
             <select value={currency} onChange={(event) => setCurrency(event.target.value)} className="form__select">
-              <option value={eur}>EUR</option>
-              <option value="3.7736">USD</option>
-              <option value="5.2474">GBP</option>
-              <option value="4.1282">CHF</option>
+              {currencies.map((cur) => (
+                <option key={cur.value} value={cur.value}>
+                  {cur.name}
+                </option>
+              ))}
             </select>
           </label>
         </p>
