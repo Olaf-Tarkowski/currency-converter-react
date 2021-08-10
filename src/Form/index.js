@@ -26,7 +26,7 @@ const Form = () => {
         </p>
         <p>
           <label className="form__label">
-            <input value={amount} onChange={(event) => setAmount(event.target.value)} className="form__number" type="number" step="any" />
+            <input value={amount} onChange={(event) => setAmount(event.target.value)} className="form__number" type="number" step="any" min="0" step="0.01"/>
           </label>
         </p>
         <p>
@@ -42,7 +42,7 @@ const Form = () => {
         </p>
         <p>
           <label>
-            <input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} className="form__number" type="number" min="0" step="0.01" />
+            <input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} disabled="true" className="form__number" type="number"/>
           </label>
         </p>
         <button className="form__button" onClick={getCurrency}>Convert</button>
