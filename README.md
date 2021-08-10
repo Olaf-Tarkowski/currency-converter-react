@@ -1,4 +1,4 @@
-# To do list
+# Currency converter
 
 Description
 
