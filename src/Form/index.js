@@ -17,13 +17,13 @@ const Form = () => {
     setConvertCurrency(() => amount / currency)
   };
 
-  const [clock, setClock] = useState();
   const [date, setDate] = useState();
+  const [clock, setClock] = useState();
 
   useEffect(() => {
     setInterval(() => {
       const dateTime = new Date();
-      setDate(dateTime.toLocaleDateString(undefined, { weekdate: "long", date: "long", date: "numeric", month: "long" }))
+      setDate(dateTime.toLocaleDateString(undefined, { weekday: "long", day: "long", day: "numeric", month: "long" }))
     });
     setInterval(() => {
       const time = new Date();
