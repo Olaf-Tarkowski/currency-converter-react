@@ -18,18 +18,18 @@ const Form = () => {
   };
 
   const [clock, setClock] = useState();
-  const [day, setDay] = useState();
+  const [date, setDate] = useState();
 
   useEffect(() => {
     setInterval(() => {
-      const time = new Date();
-      setDay(time.toLocaleDateString(undefined, { weekday: "long", day: "long", day: "numeric", month: "long" }))
-    })
+      const dateTime = new Date();
+      setDate(dateTime.toLocaleDateString(undefined, { weekdate: "long", date: "long", date: "numeric", month: "long" }))
+    });
     setInterval(() => {
-      const day = new Date();
-      setClock(day.toLocaleTimeString())
-    })
-  }, [clock, day]);
+      const time = new Date();
+      setClock(time.toLocaleTimeString())
+    });
+  }, [date, clock]);
 
   return (
     <form onSubmit={onFormSubmit} className="form">
@@ -37,7 +37,7 @@ const Form = () => {
       <fieldset className="form__fieldset">
         <legend className="form__legend">Currency converter</legend>
         <p className="form__clock">
-          Dzisiaj jest {day} , {clock}
+          Dzisiaj jest {date} , {clock}
         </p>
         <p>
           <label className="form__label"> I have: PLN </label>
