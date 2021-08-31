@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css"
 import currencies from "./currencies";
 
@@ -12,21 +12,39 @@ const Form = () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
   };
+
   const getCurrency = () => {
     setConvertCurrency(() => amount / currency)
-  }
+  };
+
+  const [clock, setClock] = useState();
+  const [day, setDay] = useState();
+
+  useEffect(() => {
+    setInterval(() => {
+      const time = new Date();
+      setDay(time.toLocaleDateString(undefined, { weekday: "long", day: "long", day: "numeric", month: "long" }))
+    })
+    setInterval(() => {
+      const day = new Date();
+      setClock(day.toLocaleTimeString())
+    })
+  }, [clock, day]);
 
   return (
     <form onSubmit={onFormSubmit} className="form">
 
       <fieldset className="form__fieldset">
         <legend className="form__legend">Currency converter</legend>
+        <p className="form__clock">
+          Dzisiaj jest {day} , {clock}
+        </p>
         <p>
           <label className="form__label"> I have: PLN </label>
         </p>
         <p>
           <label className="form__label">
-            <input value={amount} onChange={(event) => setAmount(event.target.value)} className="form__number" type="number" step="any" min="0" step="0.01"/>
+            <input value={amount} onChange={(event) => setAmount(event.target.value)} className="form__number" type="number" step="any" min="0" step="0.01" />
           </label>
         </p>
         <p>
@@ -42,7 +60,7 @@ const Form = () => {
         </p>
         <p>
           <label>
-            <input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} disabled="true" className="form__number" type="number"/>
+            <input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} disabled="true" className="form__number" type="number" />
           </label>
         </p>
         <button className="form__button" onClick={getCurrency}>Convert</button>
