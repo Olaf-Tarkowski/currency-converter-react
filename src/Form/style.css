@@ -16,7 +16,9 @@
 }
 
 .form__clock {
-    padding-left: 100px;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 90px;
 }
 
 .form__label {
