@@ -7,7 +7,7 @@ const Clock = () => {
     useEffect(() => {
       setInterval(() => {
         const time = new Date();
-        setDate(time.toLocaleString(undefined, {
+        setDate(time.toLocaleString("en-UK", {
           weekday: "long",
           day: "numeric",
           month: "long",
@@ -20,7 +20,7 @@ const Clock = () => {
 
     return(
         <p className="clock">
-            Dzisiaj jest {date}
+            Today is {date}
         </p>
     );
 }
