@@ -18,22 +18,6 @@ const Form = () => {
     setConvertCurrency(() => amount / currency)
   };
 
-  // const [date, setDate] = useState();
-
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     const time = new Date();
-  //     setDate(time.toLocaleString(undefined, {
-  //       weekday: "long",
-  //       hour: "numeric",
-  //       minute:"numeric",
-  //       second:"numeric",
-  //       day: "numeric",
-  //       month: "long"
-  //     }))
-  //   });
-  // }, [date]);
-
     return (
       <form onSubmit={onFormSubmit} className="form">
 
