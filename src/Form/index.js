@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./style.css"
 import currencies from "./currencies";
+
 
 
 const Form = () => {
@@ -17,55 +18,54 @@ const Form = () => {
     setConvertCurrency(() => amount / currency)
   };
 
-  const [date, setDate] = useState();
-  const [clock, setClock] = useState();
+  // const [date, setDate] = useState();
 
-  useEffect(() => {
-    setInterval(() => {
-      const dateTime = new Date();
-      setDate(dateTime.toLocaleDateString(undefined, { weekday: "long", day: "long", day: "numeric", month: "long" }))
-    });
-    setInterval(() => {
-      const time = new Date();
-      setClock(time.toLocaleTimeString())
-    });
-  }, [date, clock]);
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     const time = new Date();
+  //     setDate(time.toLocaleString(undefined, {
+  //       weekday: "long",
+  //       hour: "numeric",
+  //       minute:"numeric",
+  //       second:"numeric",
+  //       day: "numeric",
+  //       month: "long"
+  //     }))
+  //   });
+  // }, [date]);
 
-  return (
-    <form onSubmit={onFormSubmit} className="form">
+    return (
+      <form onSubmit={onFormSubmit} className="form">
 
-      <fieldset className="form__fieldset">
-        <legend className="form__legend">Currency converter</legend>
-        <p className="form__clock">
-          Dzisiaj jest {date} , {clock}
-        </p>
-        <p>
-          <label className="form__label"> I have: PLN </label>
-        </p>
-        <p>
-          <label className="form__label">
-            <input value={amount} onChange={(event) => setAmount(event.target.value)} className="form__number" type="number" step="any" min="0" step="0.01" />
-          </label>
-        </p>
-        <p>
-          <label className="form__label"> I want:
-            <select value={currency} onChange={(event) => setCurrency(event.target.value)} className="form__select">
-              {currencies.map((cur) => (
-                <option key={cur.value} value={cur.value}>
-                  {cur.name}
-                </option>
-              ))}
-            </select>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} disabled="true" className="form__number" type="number" />
-          </label>
-        </p>
-        <button className="form__button" onClick={getCurrency}>Convert</button>
-      </fieldset>
-    </form >
-  )
-}
+        <fieldset className="form__fieldset">
+          <legend className="form__legend">Currency converter</legend>
+          <p>
+            <label className="form__label"> I have: PLN </label>
+          </p>
+          <p>
+            <label className="form__label">
+              <input value={amount} onChange={(event) => setAmount(event.target.value)} className="form__number" type="number" step="any" min="0" step="0.01" />
+            </label>
+          </p>
+          <p>
+            <label className="form__label"> I want:
+              <select value={currency} onChange={(event) => setCurrency(event.target.value)} className="form__select">
+                {currencies.map((cur) => (
+                  <option key={cur.value} value={cur.value}>
+                    {cur.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} disabled="true" className="form__number" type="number" />
+            </label>
+          </p>
+          <button className="form__button" onClick={getCurrency}>Convert</button>
+        </fieldset>
+      </form >
+    )
+  }
 export default Form;

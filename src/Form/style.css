@@ -15,12 +15,6 @@
     font-size: 20px;
 }
 
-.form__clock {
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 90px;
-}
-
 .form__label {
     font-weight: 700;
 }
