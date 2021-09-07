@@ -1,26 +1,27 @@
 import { useEffect, useState } from "react";
 import "./style.css"
 
+const time = (date) => date.toLocaleString("en-UK", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  hour: "numeric",
+  minute:"numeric",
+  second:"numeric",
+})
+
 const Clock = () => {
-    const [date, setDate] = useState();
+    const [date, setDate] = useState(new Date());
 
     useEffect(() => {
       setInterval(() => {
-        const time = new Date();
-        setDate(time.toLocaleString("en-UK", {
-          weekday: "long",
-          day: "numeric",
-          month: "long",
-          hour: "numeric",
-          minute:"numeric",
-          second:"numeric",
-        }))
+        setDate(new Date());
       });
-    }, [date]);
+    }, []);
 
     return(
         <p className="clock">
-            Today is {date}
+            Today is {time(date)}
         </p>
     );
 }
