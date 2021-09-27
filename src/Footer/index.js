@@ -1,8 +1,8 @@
-import "./style.css"
+import {StyledFooter} from "./styled"
 
 const Footer = () => {
     return(
-        <footer className="footer">YouCode</footer>
+        <StyledFooter>YouCode</StyledFooter>
     )
 }
 
