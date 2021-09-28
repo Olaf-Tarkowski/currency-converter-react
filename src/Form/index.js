@@ -46,7 +46,7 @@ const Form = () => {
         </p>
         <p>
           <Label>
-            <Input value={convertCurrency.toFixed(2)} onChange={(event) => setConvertCurrency(event.target.value)} disabled={true} type="number" />
+            <Input value={convertCurrency.toFixed(2)} onChange={({ target }) => setConvertCurrency(target.value)} disabled={true} type="number" />
           </Label>
         </p>
         <StyledButton onClick={getCurrency}>
