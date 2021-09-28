@@ -1,11 +1,15 @@
-import "./style.css"
+import { StyledHeader, Title, Paragraph } from "./styled";
 
 const Header = () => {
     return (
-        <header className="header">
-            <h1 className="header__title">Welcome in Currency Converter </h1>
-            <p className="header__paragraph">nobody can cheat you here, i guess?</p>
-        </header>
+        <StyledHeader>
+            <Title>
+                Welcome in Currency Converter
+            </Title>
+            <Paragraph>
+                nobody can cheat you here, i guess?
+            </Paragraph>
+        </StyledHeader>
     )
 }
 export default Header;

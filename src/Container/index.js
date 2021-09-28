@@ -1,10 +1,10 @@
-import "./style.css"
+import { Main } from "./styled"
 
 const Container = ({ children }) => {
     return (
-        <main className="body__backgroundImage">
+        <Main>
             {children}
-        </main>
+        </Main>
     )
 };
 
