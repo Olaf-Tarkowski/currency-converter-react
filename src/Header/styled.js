@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-    font-family: 'Bigelow Rules', cursive;
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: 50px;
     text-align: center;
 `;
 
 export const Title = styled.h1`
-    padding-top: 100px;
+    padding-top: 150px;
     text-shadow: 2px 2px rgb(255, 255, 255);
     color: rgb(168, 0, 0);
 `;
