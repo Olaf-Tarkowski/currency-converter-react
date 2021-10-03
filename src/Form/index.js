@@ -14,7 +14,9 @@ const Form = () => {
   };
 
   const getCurrency = () => {
-    setConvertCurrency(() => amount / currency)
+    if (amount >= 0) {
+      setConvertCurrency(() => amount / currency)
+    }
   };
 
   return (
@@ -30,7 +32,7 @@ const Form = () => {
         </p>
         <p>
           <Label>
-            <Input value={amount} onChange={({ target }) => setAmount(target.value)} type="number" step="any" min="0" step="0.01" />
+            <Input value={amount} onChange={({ target }) => setAmount(target.value)} type="number" min="0" step="0.01" />
           </Label>
         </p>
         <p>
