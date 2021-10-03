@@ -4,6 +4,9 @@ export const StyledHeader = styled.header`
     font-size: 30px;
     margin-bottom: 50px;
     text-align: center;
+    @media (max-width: 600px) {
+        font-size: 17px; 
+    }
 `;
 
 export const Title = styled.h1`
