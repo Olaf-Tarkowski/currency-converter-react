@@ -8,7 +8,7 @@ export const StyledClock = styled.p`
     display: flex;
     justify-content: flex-end;
 
-    @media (max-width: 621px) {
-        padding-top: 289px;
+    @media (max-width: 600px) {
+        padding-top: 100px;
     }
 `;
