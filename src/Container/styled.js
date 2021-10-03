@@ -2,6 +2,7 @@ import styled from "styled-components";
 import background from "../background.jpg"
 
 export const Main = styled.main`
+    font-family: 'Josefin Slab', serif, cursive;
     background-image: url("${background}");
     background-size: cover;
     background-position: center;
