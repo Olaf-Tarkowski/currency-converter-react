@@ -8,7 +8,7 @@ export const StyledClock = styled.p`
     display: flex;
     justify-content: flex-end;
 
-    @media (max-width: 600px) {
+    @media (max-width: ${({theme}) => theme.breakpoints.mobile}px) {
         padding-top: 100px;
     }
 `;
