@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
 html {
   box-sizing: border-box;
 }
@@ -9,3 +12,4 @@ html {
 body {
   background-color: rgb(242, 242, 242);
 }
+`;
