@@ -10,6 +10,6 @@ html {
 }
 
 body {
-  background-color: rgb(242, 242, 242);
+  background-color: ${({theme}) => theme.colors.concrete};
 }
 `;
