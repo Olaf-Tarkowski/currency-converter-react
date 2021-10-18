@@ -1,13 +1,34 @@
-import { useState } from "react";
-import { currencies } from "./currencies";
-import { FormSetup, Fieldset, Legend, Label, Select, StyledButton, Input } from "./styled"
+import { useEffect, useState } from "react";
+import { FormSetup, Fieldset, Legend, Label, StyledButton, Input } from "./styled"
 
-
+const base_url = "https://api.exchangerate.host/latest?base=PLN"
 
 const Form = () => {
-  const [amount, setAmount] = useState("")
-  const [currency, setCurrency] = useState(currencies.find((cur) => cur.name === "EUR").value)
+  const [amount, setAmount] = useState('')
+  const [currency, setCurrency] = useState(1)
   const [convertCurrency, setConvertCurrency] = useState(0)
+
+  const [currencyOptions, setCurrencyOptions] = useState({});
+  console.log(currency);
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      try {
+        const response = await fetch(base_url);
+        if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+        const { rates } = await response.json();
+        setCurrencyOptions({ rates });
+        setCurrency([...Object.values(rates)])
+        console.log(rates)
+      } catch (error) {
+        console.error("huj")
+      }
+    };
+    fetchApi();
+  }, []);
+
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -15,7 +36,7 @@ const Form = () => {
 
   const getCurrency = () => {
     if (amount >= 0) {
-      setConvertCurrency(() => amount / currency)
+      setConvertCurrency(() => amount * currency)
     }
   };
 
@@ -37,13 +58,13 @@ const Form = () => {
         </p>
         <p>
           <Label> I want:
-            <Select value={currency} onChange={({ target }) => setCurrency(target.value)}>
-              {currencies.map((cur) => (
-                <option key={cur.value} value={cur.value}>
-                  {cur.name}
+            <Input as="select" value={currency} onChange={({ target }) => setCurrency(target.value)}>
+              {Object.keys(currencyOptions).map((option) => (
+                <option key={option} value={option}>
+                  {option}
                 </option>
               ))}
-            </Select>
+            </Input>
           </Label>
         </p>
         <p>
