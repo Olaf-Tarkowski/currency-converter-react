@@ -5,7 +5,7 @@ const base_url = "https://api.exchangerate.host/latest?base=PLN"
 
 const Form = () => {
   const [amount, setAmount] = useState('')
-  const [currency, setCurrency] = useState(1)
+  const [currency, setCurrency] = useState()
   const [convertCurrency, setConvertCurrency] = useState(0)
 
   const [currencyOptions, setCurrencyOptions] = useState({});
@@ -19,15 +19,17 @@ const Form = () => {
           throw new Error(response.statusText)
         }
         const { rates } = await response.json();
-        setCurrencyOptions({ rates });
-        setCurrency([...Object.values(rates)])
+        setCurrencyOptions(rates);
+
+
         console.log(rates)
       } catch (error) {
-        console.error("huj")
+        console.error("Error")
       }
     };
     fetchApi();
   }, []);
+
 
 
   const onFormSubmit = (event) => {
@@ -59,9 +61,9 @@ const Form = () => {
         <p>
           <Label> I want:
             <Input as="select" value={currency} onChange={({ target }) => setCurrency(target.value)}>
-              {Object.keys(currencyOptions).map((option) => (
-                <option key={option} value={option}>
-                  {option}
+              {Object.entries(currencyOptions).map((rate) => (
+                <option key={rate[0]} value={rate[1]}>
+                  {rate[0]}
                 </option>
               ))}
             </Input>
