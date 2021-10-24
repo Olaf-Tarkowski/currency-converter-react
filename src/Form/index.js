@@ -1,33 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FormSetup, Fieldset, Legend, Label, StyledButton, Input } from "./styled"
-
-
-const base_url = "https://api.exchangerate.host/latest?base=PLN"
-const useRatesData = () => {
-  const [ratesData, setRatesData] = useState({
-    state: "loading",
-  });
-
-  useEffect(() => {
-    const fetchApi = async () => {
-      try {
-        const response = await fetch(base_url);
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
-        const { rates, date } = await response.json();
-        setRatesData({ state: "success", rates, date });
-
-      } catch {
-        setRatesData({
-          state: "error",
-        });
-      }
-    };
-    setTimeout(fetchApi, 2_000);
-  }, []);
-  return ratesData;
-};
+import {useRatesData} from "./useRatesData"
 
 
 export const Form = () => {
@@ -39,7 +12,9 @@ export const Form = () => {
 
   const getCurrency = () => {
     const rate = ratesData.rates[currency];
-    setResult(() => amount * rate)
+    if (amount >= 0) {
+      setResult(() => amount * rate)
+    }
   };
 
   const onFormSubmit = (event) => {
@@ -80,10 +55,7 @@ export const Form = () => {
                   <Label> I want:
                     <Input as="select" value={currency} onChange={({ target }) => setCurrency(target.value)}>
                       {Object.keys(ratesData.rates).map(((currency) => (
-                        <option
-                          key={currency}
-                          value={currency}
-                        >
+                        <option key={currency} value={currency}>
                           {currency}
                         </option>
                       )))}
