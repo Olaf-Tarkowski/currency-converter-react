@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FormSetup, Fieldset, Legend, Label, StyledButton, Input } from "./styled"
-import {useRatesData} from "./useRatesData"
+import { useRatesData } from "./useRatesData"
 
 
 export const Form = () => {
@@ -71,12 +71,12 @@ export const Form = () => {
                   Convert
                 </StyledButton>
                 <p>
-                  Exchange rates are taken from the European Central Bank. <br/>
+                  Exchange rates are taken from the European Central Bank. <br />
                   Valid as of the date: {ratesData.date}
                 </p>
               </>))}
       </Fieldset>
     </FormSetup >
   )
-}
+};
 export default Form;
