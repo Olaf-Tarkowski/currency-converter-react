@@ -7,7 +7,7 @@ const Header = () => {
                 Welcome in Currency Converter
             </Title>
             <Paragraph>
-                nobody can cheat you here, i guess?
+                nobody can cheat you here
             </Paragraph>
         </StyledHeader>
     )
