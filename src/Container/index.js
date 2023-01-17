@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from "../background.jpg"
+import background from "../resources/background.jpg"
 
 export const Container = styled.main`
     font-family: 'Josefin Slab', serif, cursive;
