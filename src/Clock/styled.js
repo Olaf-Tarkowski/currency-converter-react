@@ -1,14 +1,11 @@
 import styled from "styled-components"
 
-export const StyledClock = styled.p`
+export const StyledClock = styled.div`
     font-family: 'Roboto Mono', monospace;
-    font-size: 12px;
-    margin-right: 19px;
-    padding-top: 300px;
     display: flex;
     justify-content: flex-end;
-
-    @media (max-width: ${({theme}) => theme.breakpoints.mobile}px) {
-        padding-top: 100px;
-    }
+    align-items:flex-end;
+    font-size: 12px;
+    margin-right: 20px;
+    margin-bottom: 15px;
 `;
