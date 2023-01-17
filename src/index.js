@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './Core/App';
 import reportWebVitals from './reportWebVitals';
-import { GlobalStyle } from './GlobalStyle';
+import { GlobalStyle } from './Core/GlobalStyle';
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme"
 
